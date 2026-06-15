@@ -1,0 +1,26 @@
+{
+  "name": "kelurahan-pondok-pucung",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node start.cjs",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.10.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "next": "14.2.0",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "main": "next.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

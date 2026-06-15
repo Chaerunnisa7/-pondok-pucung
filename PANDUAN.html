@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Website Kelurahan Pondok Pucung</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f8f9fa;
+    color: #1a2e1a;
+    line-height: 1.6;
+  }
+
+  .sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: 260px;
+    background: #1a4731;
+    color: white;
+    overflow-y: auto;
+    padding: 24px 0;
+    z-index: 100;
+  }
+
+  .sidebar-title {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #95d5b2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    color: #b7e4c7;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar a:hover {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border-left-color: #52b788;
+  }
+
+  .main {
+    margin-left: 260px;
+    padding: 40px;
+    max-width: 920px;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: #1a4731;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: #1a4731;
+    margin: 40px 0 16px;
+    padding-top: 40px;
+    border-top: 2px solid #e8ede4;
+  }
+
+  h2:first-of-type { border-top: none; }
+
+  h3 {
+    font-size: 18px;
+    color: #2d6a4f;
+    margin: 24px 0 12px;
+  }
+
+  p { margin-bottom: 14px; color: #3d5a3d; }
+
+  .hero-box {
+    background: linear-gradient(135deg, #1a4731, #2d6a4f);
+    color: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 40px;
+  }
+
+  .hero-box h1 { color: white; font-size: 28px; }
+  .hero-box p { color: #95d5b2; margin-bottom: 0; }
+
+  .step-box {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 20px 0;
+    box-shadow: 0 2px 12px rgba(26,71,49,0.08);
+    border-left: 4px solid #52b788;
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    background: #1a4731;
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .step-title {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a4731;
+    margin-bottom: 12px;
+  }
+
+  pre {
+    background: #0d1f0d;
+    color: #b7e4c7;
+    border-radius: 10px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 16px 0;
+    font-family: 'Courier New', monospace;
+  }
+
+  code {
+    background: #e8f5e9;
+    color: #1a4731;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .file-tree {
+    background: #0d1f0d;
+    color: #b7e4c7;
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 16px 0;
+  }
+
+  .file-tree .folder { color: #52b788; font-weight: bold; }
+  .file-tree .file { color: #d4edda; }
+  .file-tree .comment { color: #6b9e6b; font-style: italic; }
+
+  .alert {
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .alert-info { background: #e8f5e9; border-left: 4px solid #52b788; color: #1a4731; }
+  .alert-warning { background: #fff8e1; border-left: 4px solid #c9a84c; color: #7a5a00; }
+  .alert-tip { background: #e3f2fd; border-left: 4px solid #2196f3; color: #0d47a1; }
+
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .badge-green { background: #e8f5e9; color: #1a4731; }
+  .badge-orange { background: #fff3e0; color: #e65100; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  th {
+    background: #1a4731;
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  td {
+    padding: 11px 16px;
+    border-bottom: 1px solid #e8ede4;
+  }
+
+  tr:nth-child(even) td { background: #f8f9f4; }
+
+  .folder-visual {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    line-height: 1.9;
+    background: #f8f9f4;
+    border: 1px solid #e8ede4;
+    border-radius: 10px;
+    padding: 20px 24px;
+    color: #2d6a4f;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .main { margin-left: 0; padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR NAVIGASI -->
+<nav class="sidebar">
+  <div class="sidebar-title">📖 Daftar Isi</div>
+  <a href="#persiapan">🛠️ 1. Persiapan</a>
+  <a href="#struktur">📁 2. Struktur Folder</a>
+  <a href="#konsep">💡 3. Konsep Next.js</a>
+  <a href="#install">📦 4. Instalasi</a>
+  <a href="#layout">🏗️ 5. Layout & Komponen</a>
+  <a href="#halaman">📄 6. Tiap Halaman</a>
+  <a href="#data">🗃️ 7. Data Statis</a>
+  <a href="#styling">🎨 8. CSS & Styling</a>
+  <a href="#routing">🔗 9. Routing</a>
+  <a href="#build">⚙️ 10. Build Static</a>
+  <a href="#deploy">🚀 11. Deploy Vercel</a>
+  <a href="#tips">💬 12. Tips Pemula</a>
+</nav>
+
+<!-- KONTEN UTAMA -->
+<main class="main">
+
+  <div class="hero-box">
+    <h1>🏛️ Panduan Website Kelurahan Pondok Pucung</h1>
+    <p>Tutorial lengkap membuat website profil kelurahan menggunakan Next.js + deploy ke Vercel.<br>Cocok untuk pemula yang sudah mengenal HTML & CSS.</p>
+  </div>
+
+  <!-- ===== PERSIAPAN ===== -->
+  <h2 id="persiapan">🛠️ 1. Persiapan — Install Dulu Ini</h2>
+
+  <p>Sebelum mulai coding, kamu perlu menginstal beberapa software:</p>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">A</span> Install Node.js</div>
+    <p>Node.js adalah "mesin" yang menjalankan JavaScript di komputermu (bukan di browser).</p>
+    <ol style="padding-left:20px;color:#3d5a3d;font-size:14px;">
+      <li>Buka <strong>nodejs.org</strong></li>
+      <li>Download versi <strong>LTS</strong> (yang lebih stabil)</li>
+      <li>Install seperti biasa (Next, Next, Finish)</li>
+      <li>Verifikasi: buka Terminal/Command Prompt, ketik:</li>
+    </ol>
+    <pre>node --version
+npm --version</pre>
+    <p>Jika muncul angka versi (misal: v20.11.0), berarti berhasil! ✅</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">B</span> Install VS Code</div>
+    <p>Text editor terbaik untuk web development. Download di <strong>code.visualstudio.com</strong></p>
+    <p>Extensions yang disarankan (install di VS Code):</p>
+    <ul style="padding-left:20px;color:#3d5a3d;font-size:14px;line-height:2;">
+      <li><code>ES7+ React/Redux/React-Native snippets</code> — shortcut kode React</li>
+      <li><code>Prettier</code> — auto-format kode jadi rapi</li>
+      <li><code>Auto Rename Tag</code> — rename tag HTML otomatis</li>
+    </ul>
+  </div>
+
+  <!-- ===== STRUKTUR FOLDER ===== -->
+  <h2 id="struktur">📁 2. Struktur Folder Project</h2>
+
+  <p>Ini adalah struktur folder final project kamu. Pelajari dulu sebelum mulai coding:</p>
+
+  <div class="file-tree">
+<span class="folder">pondok-pucung/</span>                    <span class="comment">← Folder utama project</span>
+├── <span class="folder">src/</span>                           <span class="comment">← Source code ada di sini</span>
+│   ├── <span class="folder">app/</span>                       <span class="comment">← Setiap folder = satu halaman web</span>
+│   │   ├── <span class="file">layout.js</span>              <span class="comment">← Template utama (navbar+footer)</span>
+│   │   ├── <span class="file">page.js</span>                <span class="comment">← Halaman Home (URL: /)</span>
+│   │   ├── <span class="file">globals.css</span>            <span class="comment">← CSS global untuk semua halaman</span>
+│   │   ├── <span class="folder">profil/</span>
+│   │   │   └── <span class="file">page.js</span>            <span class="comment">← Halaman Profil (URL: /profil)</span>
+│   │   ├── <span class="folder">visi-misi/</span>
+│   │   │   └── <span class="file">page.js</span>            <span class="comment">← Halaman Visi Misi (URL: /visi-misi)</span>
+│   │   ├── <span class="folder">struktur/</span>
+│   │   │   └── <span class="file">page.js</span>            <span class="comment">← Halaman Struktur (URL: /struktur)</span>
+│   │   ├── <span class="folder">berita/</span>
+│   │   │   └── <span class="file">page.js</span>            <span class="comment">← Halaman Berita (URL: /berita)</span>
+│   │   └── <span class="folder">kontak/</span>
+│   │       └── <span class="file">page.js</span>            <span class="comment">← Halaman Kontak (URL: /kontak)</span>
+│   ├── <span class="folder">components/</span>                <span class="comment">← Komponen yang dipakai ulang</span>
+│   │   ├── <span class="file">Navbar.js</span>              <span class="comment">← Menu navigasi (muncul di semua hal.)</span>
+│   │   ├── <span class="file">Footer.js</span>              <span class="comment">← Footer (muncul di semua halaman)</span>
+│   │   └── <span class="file">PageHeader.js</span>          <span class="comment">← Header halaman dalam</span>
+│   └── <span class="folder">data/</span>
+│       └── <span class="file">data.js</span>                <span class="comment">← Semua data statis (berita, dll)</span>
+├── <span class="file">package.json</span>                   <span class="comment">← Daftar library yang dipakai</span>
+└── <span class="file">next.config.js</span>                 <span class="comment">← Konfigurasi Next.js (mode static)</span>
+  </div>
+
+  <div class="alert alert-info">
+    💡 <div><strong>Aturan paling penting Next.js App Router:</strong><br>
+    Setiap folder di dalam <code>app/</code> yang punya file <code>page.js</code> = satu halaman website.<br>
+    Contoh: folder <code>profil/page.js</code> → halaman dengan URL <code>/profil</code></div>
+  </div>
+
+  <!-- ===== KONSEP ===== -->
+  <h2 id="konsep">💡 3. Konsep Dasar yang Perlu Kamu Tahu</h2>
+
+  <table>
+    <tr><th>Istilah</th><th>Artinya (bahasa mudah)</th><th>Analogi</th></tr>
+    <tr><td><strong>Component</strong></td><td>Potongan UI yang bisa dipakai ulang</td><td>Seperti stempel yang bisa dipakai berkali-kali</td></tr>
+    <tr><td><strong>Props</strong></td><td>Data yang dikirim ke komponen</td><td>Seperti parameter di fungsi, atau isian form</td></tr>
+    <tr><td><strong>JSX</strong></td><td>HTML yang ditulis di dalam JavaScript</td><td>HTML biasa tapi ada logika JS-nya</td></tr>
+    <tr><td><strong>SSG</strong></td><td>Halaman dibuat saat build, bukan saat dikunjungi</td><td>Mencetak brosur di awal, bukan on-demand</td></tr>
+    <tr><td><strong>Layout</strong></td><td>Template yang membungkus semua halaman</td><td>Seperti frame foto yang sama untuk semua foto</td></tr>
+    <tr><td><strong>Routing</strong></td><td>Sistem navigasi antar halaman</td><td>Seperti daftar isi buku</td></tr>
+  </table>
+
+  <h3>Struktur Dasar Komponen React</h3>
+  <pre>// Ini adalah komponen React paling sederhana
+// "export default" = komponen ini bisa dipakai di file lain
+export default function NamaKomponen() {
+  return (
+    // Yang di dalam return() = tampilan HTML-nya
+    &lt;div&gt;
+      &lt;h1&gt;Halo Dunia!&lt;/h1&gt;
+      &lt;p&gt;Ini paragraph.&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}
+
+// Komponen dengan Props (data dari luar)
+export default function Kartu({ judul, isi }) {
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;{judul}&lt;/h2&gt;  {/* Kurung kurawal = JavaScript */}
+      &lt;p&gt;{isi}&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}
+
+// Cara pakainya di halaman lain:
+// &lt;Kartu judul="Profil" isi="Tentang kelurahan" /&gt;</pre>
+
+  <!-- ===== INSTALASI ===== -->
+  <h2 id="install">📦 4. Instalasi Project</h2>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">1</span> Buka Terminal</div>
+    <p>Di Windows: tekan <code>Win + R</code> → ketik <code>cmd</code> → Enter<br>
+    Di Mac: tekan <code>Cmd + Space</code> → ketik Terminal → Enter</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">2</span> Buat Project Next.js Baru</div>
+    <pre>npx create-next-app@latest pondok-pucung</pre>
+    <p>Akan muncul beberapa pertanyaan. Jawab seperti ini:</p>
+    <pre>✔ Would you like to use TypeScript? → No
+✔ Would you like to use ESLint? → Yes
+✔ Would you like to use Tailwind CSS? → No  (kita pakai CSS biasa)
+✔ Would you like to use `src/` directory? → Yes
+✔ Would you like to use App Router? → Yes
+✔ Would you like to customize the default import alias? → No</pre>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">3</span> Masuk ke Folder Project</div>
+    <pre>cd pondok-pucung</pre>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">4</span> Jalankan Server Development</div>
+    <pre>npm run dev</pre>
+    <p>Buka browser, akses <strong>http://localhost:3000</strong> — website kamu sudah berjalan! 🎉</p>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">5</span> Salin Semua File yang Sudah Dibuat</div>
+    <p>Salin seluruh isi file dari project yang sudah disiapkan ke folder project kamu. Struktur foldernya sudah sama persis.</p>
+  </div>
+
+  <!-- ===== LAYOUT ===== -->
+  <h2 id="layout">🏗️ 5. Layout & Komponen Reusable</h2>
+
+  <p>Layout adalah "bingkai" yang membungkus semua halaman. Navbar dan Footer ada di sini sehingga tidak perlu ditulis berulang di setiap halaman.</p>
+
+  <pre>// src/app/layout.js — ini dijalankan PERTAMA sebelum halaman apapun
+import './globals.css'      // Import CSS global
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
+
+// Metadata = informasi untuk Google (SEO)
+export const metadata = {
+  title: 'Kelurahan Pondok Pucung',
+  description: 'Website resmi kelurahan...',
+}
+
+export default function RootLayout({ children }) {
+  return (
+    &lt;html lang="id"&gt;
+      &lt;body&gt;
+        &lt;Navbar /&gt;         {/* Muncul di SEMUA halaman */}
+        &lt;main&gt;{children}&lt;/main&gt;  {/* Isi halaman berubah di sini */}
+        &lt;Footer /&gt;         {/* Muncul di SEMUA halaman */}
+      &lt;/body&gt;
+    &lt;/html&gt;
+  )
+}</pre>
+
+  <div class="alert alert-tip">
+    🔵 <div><strong>Apa itu <code>@/</code>?</strong><br>
+    Tanda <code>@/</code> adalah shortcut untuk folder <code>src/</code>.<br>
+    Jadi <code>@/components/Navbar</code> = <code>src/components/Navbar.js</code><br>
+    Ini supaya tidak perlu menulis path panjang seperti <code>../../components/Navbar</code></div>
+  </div>
+
+  <!-- ===== HALAMAN ===== -->
+  <h2 id="halaman">📄 6. Cara Membuat Tiap Halaman</h2>
+
+  <h3>Cara Kerja Routing di Next.js App Router</h3>
+  <p>Cukup buat <strong>folder baru</strong> + file <strong>page.js</strong> di dalamnya:</p>
+
+  <table>
+    <tr><th>File yang Dibuat</th><th>URL yang Terbentuk</th></tr>
+    <tr><td><code>src/app/page.js</code></td><td><code>http://localhost:3000/</code></td></tr>
+    <tr><td><code>src/app/profil/page.js</code></td><td><code>http://localhost:3000/profil</code></td></tr>
+    <tr><td><code>src/app/visi-misi/page.js</code></td><td><code>http://localhost:3000/visi-misi</code></td></tr>
+    <tr><td><code>src/app/berita/page.js</code></td><td><code>http://localhost:3000/berita</code></td></tr>
+    <tr><td><code>src/app/kontak/page.js</code></td><td><code>http://localhost:3000/kontak</code></td></tr>
+  </table>
+
+  <h3>Template Dasar Setiap Halaman</h3>
+  <pre>// src/app/profil/page.js
+
+// metadata = judul tab browser (opsional tapi bagus untuk SEO)
+export const metadata = {
+  title: 'Profil | Kelurahan Pondok Pucung',
+}
+
+// Fungsi ini adalah "isi" halaman profil
+export default function ProfilPage() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Profil Kelurahan&lt;/h1&gt;
+      &lt;p&gt;Ini isi halaman profil.&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}</pre>
+
+  <h3>Menggunakan Komponen PageHeader</h3>
+  <pre>// Import komponen yang sudah dibuat
+import PageHeader from '@/components/PageHeader'
+
+export default function ProfilPage() {
+  return (
+    &lt;&gt;  {/* &lt;&gt; = Fragment, pembungkus tanpa div ekstra */}
+      
+      {/* Gunakan PageHeader dengan props judul dan deskripsi */}
+      &lt;PageHeader
+        judul="Profil Kelurahan"
+        deskripsi="Mengenal lebih dekat Kelurahan Pondok Pucung"
+      /&gt;
+      
+      {/* Isi konten halaman di bawahnya */}
+      &lt;section&gt;
+        &lt;p&gt;Konten halaman di sini...&lt;/p&gt;
+      &lt;/section&gt;
+    &lt;/&gt;
+  )
+}</pre>
+
+  <!-- ===== DATA STATIS ===== -->
+  <h2 id="data">🗃️ 7. Mengelola Data Statis</h2>
+
+  <p>Karena website ini tidak pakai database, semua data (berita, struktur, dll) disimpan di file JavaScript:</p>
+
+  <pre>// src/data/data.js — edit file ini untuk update konten!
+
+export const dataBerita = [
+  {
+    id: 1,
+    judul: 'Gotong Royong RT 05',
+    tanggal: '20 April 2025',
+    kategori: 'Kegiatan',
+    ringkasan: 'Deskripsi singkat berita...',
+    emoji: '🧹',
+  },
+  // Tambahkan berita baru di sini dengan format yang sama
+  {
+    id: 2,
+    judul: 'Judul Berita Baru',
+    tanggal: '25 April 2025',
+    kategori: 'Kesehatan',
+    ringkasan: 'Ringkasan berita baru...',
+    emoji: '🏥',
+  },
+]</pre>
+
+  <p>Cara menggunakannya di halaman:</p>
+  <pre>// Di halaman berita (src/app/berita/page.js)
+import { dataBerita } from '@/data/data'  // Import data
+
+export default function BeritaPage() {
+  return (
+    &lt;div&gt;
+      {/* .map() = loop/perulangan, tampilkan tiap item */}
+      {dataBerita.map((berita) =&gt; (
+        &lt;div key={berita.id}&gt;  {/* key wajib ada saat loop */}
+          &lt;h3&gt;{berita.judul}&lt;/h3&gt;
+          &lt;p&gt;{berita.tanggal}&lt;/p&gt;
+          &lt;p&gt;{berita.ringkasan}&lt;/p&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  )
+}</pre>
+
+  <!-- ===== STYLING ===== -->
+  <h2 id="styling">🎨 8. CSS & Styling</h2>
+
+  <p>Kita menggunakan CSS biasa (bukan Tailwind) sehingga lebih mudah dipahami pemula.</p>
+
+  <h3>CSS Variables — Cara Mendefinisikan Warna</h3>
+  <pre>/* Di globals.css */
+:root {
+  /* Definisikan warna utama sekali */
+  --hijau-tua: #1a4731;
+  --hijau-muda: #52b788;
+  --emas: #c9a84c;
+}
+
+/* Gunakan di mana saja */
+.navbar {
+  background: var(--hijau-tua);  /* pakai variable */
+}
+
+.harga {
+  color: var(--hijau-muda);
+}</pre>
+
+  <h3>Cara Menulis Style Inline di JSX</h3>
+  <pre>// Di JSX, style inline pakai objek JavaScript (camelCase!)
+// HTML biasa:   style="background-color: red; font-size: 14px"
+// JSX:          style={{ backgroundColor: 'red', fontSize: '14px' }}
+
+&lt;div style={{
+  backgroundColor: 'var(--hijau-tua)',
+  padding: '24px',
+  borderRadius: '16px',
+}}&gt;
+  Konten
+&lt;/div&gt;</pre>
+
+  <div class="alert alert-warning">
+    ⚠️ <div><strong>Perbedaan HTML vs JSX:</strong>
+    <ul style="margin-top:8px;padding-left:16px;line-height:2;">
+      <li>HTML: <code>class="nama"</code> → JSX: <code>className="nama"</code></li>
+      <li>HTML: <code>for="id"</code> → JSX: <code>htmlFor="id"</code></li>
+      <li>HTML: <code>&lt;br&gt;</code> → JSX: <code>&lt;br /&gt;</code> (harus ditutup)</li>
+    </ul></div>
+  </div>
+
+  <!-- ===== ROUTING ===== -->
+  <h2 id="routing">🔗 9. Navigasi Antar Halaman</h2>
+
+  <p>Di Next.js, jangan gunakan tag <code>&lt;a&gt;</code> biasa untuk link internal. Gunakan komponen <code>Link</code>:</p>
+
+  <pre>// Selalu import Link dari next/link
+import Link from 'next/link'
+
+// ❌ SALAH — ini akan reload seluruh halaman
+&lt;a href="/profil"&gt;Profil&lt;/a&gt;
+
+// ✅ BENAR — ini navigasi cepat tanpa reload
+&lt;Link href="/profil"&gt;Profil&lt;/Link&gt;
+
+// Link dengan className
+&lt;Link href="/profil" className="btn btn-primer"&gt;
+  Lihat Profil
+&lt;/Link&gt;
+
+// Link ke halaman luar (eksternal) — pakai &lt;a&gt; biasa
+&lt;a href="https://tangsel.go.id" target="_blank" rel="noopener"&gt;
+  Website Pemkot
+&lt;/a&gt;</pre>
+
+  <h3>Menandai Menu Aktif di Navbar</h3>
+  <pre>'use client'  // ← wajib jika pakai hook
+
+import { usePathname } from 'next/navigation'
+
+export default function Navbar() {
+  const pathname = usePathname()  // Mendapatkan URL saat ini
+  
+  return (
+    &lt;nav&gt;
+      &lt;Link
+        href="/profil"
+        className={pathname === '/profil' ? 'aktif' : ''}
+      &gt;
+        Profil
+      &lt;/Link&gt;
+    &lt;/nav&gt;
+  )
+}</pre>
+
+  <div class="alert alert-tip">
+    🔵 <div><strong>Kapan pakai <code>'use client'</code>?</strong><br>
+    Tambahkan di bagian atas file jika komponen menggunakan:<br>
+    • <code>useState</code> — menyimpan data yang bisa berubah<br>
+    • <code>useEffect</code> — menjalankan kode setelah render<br>
+    • Event handler seperti <code>onClick</code>, <code>onChange</code><br>
+    • Hook Next.js seperti <code>usePathname</code>, <code>useRouter</code></div>
+  </div>
+
+  <!-- ===== BUILD ===== -->
+  <h2 id="build">⚙️ 10. Build menjadi Static Site</h2>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">1</span> Tambahkan Config Static Export</div>
+    <p>Pastikan <code>next.config.js</code> berisi ini:</p>
+    <pre>/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',  // ← Ini yang membuat jadi static
+}
+
+module.exports = nextConfig</pre>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">2</span> Jalankan Build</div>
+    <pre>npm run build</pre>
+    <p>Jika berhasil, akan muncul folder <code>out/</code> berisi file HTML statis yang siap upload.</p>
+  </div>
+
+  <!-- ===== DEPLOY ===== -->
+  <h2 id="deploy">🚀 11. Deploy ke Vercel</h2>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">1</span> Upload ke GitHub Dulu</div>
+    <p>Vercel membaca langsung dari GitHub. Buat akun di <strong>github.com</strong> jika belum punya.</p>
+    <pre># Di terminal, di folder project:
+git init
+git add .
+git commit -m "pertama kali upload"
+
+# Buat repository baru di GitHub, lalu:
+git remote add origin https://github.com/USERNAME/pondok-pucung.git
+git push -u origin main</pre>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">2</span> Deploy di Vercel</div>
+    <ol style="padding-left:20px;color:#3d5a3d;font-size:14px;line-height:2.2;">
+      <li>Buka <strong>vercel.com</strong> → Sign up with GitHub</li>
+      <li>Klik tombol <strong>"Add New... → Project"</strong></li>
+      <li>Pilih repository <code>pondok-pucung</code></li>
+      <li>Klik <strong>"Deploy"</strong></li>
+      <li>Tunggu 1-2 menit... selesai! 🎉</li>
+    </ol>
+  </div>
+
+  <div class="step-box">
+    <div class="step-title"><span class="step-number">3</span> Update Website</div>
+    <p>Setelah terhubung ke Vercel, setiap kali kamu push ke GitHub, website otomatis update!</p>
+    <pre># Setelah edit file, jalankan:
+git add .
+git commit -m "update berita bulan mei"
+git push
+
+# Vercel akan auto-deploy dalam ~1 menit</pre>
+  </div>
+
+  <div class="alert alert-info">
+    ✅ <div><strong>Vercel gratis untuk project personal!</strong><br>
+    Kamu akan mendapatkan URL seperti: <code>pondok-pucung.vercel.app</code><br>
+    Bisa juga menggunakan domain sendiri jika ada.</div>
+  </div>
+
+  <!-- ===== TIPS ===== -->
+  <h2 id="tips">💬 12. Tips untuk Pemula</h2>
+
+  <h3>Cara Menambah Berita Baru</h3>
+  <pre>// Edit src/data/data.js
+// Tambahkan objek baru di array dataBerita:
+
+export const dataBerita = [
+  // ... berita yang sudah ada ...
+
+  // ← Tambahkan di sini (jangan lupa koma di akhir item sebelumnya)
+  {
+    id: 7,                              // nomor unik, jangan sama
+    judul: 'Rapat Warga RW 08',
+    tanggal: '25 April 2025',
+    kategori: 'Pemerintahan',
+    ringkasan: 'Rangkuman singkat kegiatan...',
+    isi: 'Penjelasan lebih panjang...',
+    emoji: '📋',
+  },
+]</pre>
+
+  <h3>Cara Mengubah Warna Tema</h3>
+  <pre>/* Edit src/app/globals.css bagian :root */
+:root {
+  --hijau-tua: #1a4731;    /* Ubah ini untuk warna utama */
+  --hijau-muda: #52b788;   /* Warna aksen */
+  --emas: #c9a84c;          /* Warna highlight/emas */
+}</pre>
+
+  <h3>Cara Mengubah Data Kelurahan</h3>
+  <pre>// Edit langsung di file halaman yang bersangkutan
+// Misalnya data statistik di src/app/page.js:
+
+// Cari bagian ini dan ubah angkanya:
+&lt;div className="stat-angka"&gt;24.500+&lt;/div&gt;
+&lt;div className="stat-label"&gt;Jumlah Penduduk&lt;/div&gt;</pre>
+
+  <h3>Cara Mengubah Info Kontak</h3>
+  <pre>// Di src/app/kontak/page.js, cari array infoKontak:
+
+const infoKontak = [
+  {
+    ikon: '📍',
+    judul: 'Alamat Kantor',
+    detail: 'Jl. Pondok Pucung Raya No.1, ...',  // ← ubah ini
+  },
+  // ...
+]</pre>
+
+  <h3>Cara Aktifkan Form Kontak (Formspree)</h3>
+  <pre>// 1. Daftar gratis di formspree.io
+// 2. Buat form baru, dapatkan ID (format: xxxxxxxx)
+// 3. Di src/app/kontak/page.js, ganti action form:
+
+// SEBELUM:
+&lt;form action="https://formspree.io/f/GANTI_DENGAN_ID_ANDA"&gt;
+
+// SESUDAH (isi dengan ID kamu):
+&lt;form action="https://formspree.io/f/mrgzabcd"&gt;</pre>
+
+  <div style="background:white;border-radius:16px;padding:32px;margin-top:48px;box-shadow:0 2px 12px rgba(26,71,49,0.08);text-align:center;">
+    <div style="font-size:48px;margin-bottom:12px;">🎉</div>
+    <h3 style="color:#1a4731;margin-bottom:8px;">Selamat! Website Kelurahan Siap!</h3>
+    <p style="color:#3d5a3d;">Semua file sudah siap. Ikuti panduan di atas dari awal sampai deploy.<br>
+    Jika ada kendala, bacalah pesan error dengan teliti — biasanya petunjuknya ada di sana.</p>
+  </div>
+
+</main>
+</body>
+</html>
