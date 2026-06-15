@@ -21,7 +21,7 @@ export default function BeritaPage() {
   const [filterAktif, setFilterAktif] = useState('Semua');
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/berita/publik')
+    fetch('https://pondok-pucung-api.railway.app/api/berita/publik')
       .then(res => res.json())
       .then(data => setBeritaBackend(data))
       .catch(() => setBeritaBackend([]));

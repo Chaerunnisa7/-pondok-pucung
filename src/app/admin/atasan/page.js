@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-const API = 'http://localhost:3001/api';
+const API = 'https://pondok-pucung-api.railway.app/api';
 
 export default function DashboardAtasan() {
   const router = useRouter();

@@ -27,7 +27,7 @@ export default function StrukturPage() {
 
   useEffect(() => {
     // Coba ambil dari backend, kalau gagal pakai data default
-    fetch('http://localhost:3001/api/struktur')
+    fetch('https://pondok-pucung-api.railway.app/api/struktur')
       .then(res => res.json())
       .then(result => { if (result && result.length > 0) setData(result); })
       .catch(() => {}); // diam-diam pakai default
