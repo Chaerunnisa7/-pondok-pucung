@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-const API = 'https://pondok-pucung-api.railway.app/api';
+const API = 'https://pondok-pucung-api-production.up.railway.app/api';
 
 export default function DashboardAdmin() {
   const router = useRouter();
